@@ -15,15 +15,15 @@ $ pip install pipenv
 $ pipenv install
 ```
 
-## 操作
+- `env.yaml.sample`から`env.yaml`を作成
 
-### 仮想環境に入る
+## 仮想環境に入る
 
 ```
 $ pipenv shell
 ```
 
-### exe ファイル書き出し
+## exe ファイル書き出し
 
 ```
 $ pyinstaller index.py --onefile --noconsole
