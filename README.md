@@ -6,6 +6,8 @@
 
 [pip](https://pip.pypa.io/en/stable/installation/)
 
+[chrome webdriver](https://chromedriver.chromium.org/downloads)
+
 ## 環境構築
 
 ```

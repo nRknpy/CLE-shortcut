@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from omegaconf import OmegaConf
 from subprocess import CREATE_NO_WINDOW
 
-env = OmegaConf.load("env.yaml")
+env = OmegaConf.load("../env.yaml")
 
 options = Options()
 options.add_experimental_option('detach', True)
