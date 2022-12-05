@@ -24,15 +24,25 @@ driver.find_element(By.XPATH, "//*[@id=\"USER_ID\"]").send_keys(env.CLE_id)
 driver.find_element(By.XPATH, "//*[@id=\"USER_PASSWORD\"]").send_keys(env.CLE_password)
 driver.find_element(By.XPATH, "/html/body/table/tbody/tr[3]/td/table/tbody/tr[5]/td/table/tbody/tr/td[2]/div/input").click()
 
-#MFA認証画面に遷移する場合，tokenを取得
-if(driver.current_url=='https://ou-idp.auth.osaka-u.ac.jp/idp/authnPwd'):
+if (len(driver.find_elements(By.XPATH, "//*[@id=\"OTP_CODE\"]"))):
     totp=pyotp.TOTP(env.otp_key)
     token = totp.now()
     driver.find_element(By.XPATH, "//*[@id=\"OTP_CODE\"]").send_keys(token)
     driver.find_element(By.XPATH, "/html/body/form/table/tbody/tr[3]/td/table/tbody/tr[7]/td/div/button").click()
 
-if(driver.current_url == "https://ou-idp.auth.osaka-u.ac.jp/idp/otpAuth"):
+if (len(driver.find_elements(By.XPATH, "/html/body/form/table[2]/tbody/tr[4]/td[1]/input"))):
     driver.find_element(By.XPATH, "/html/body/form/table[2]/tbody/tr[4]/td[1]/input").click()
     driver.find_element(By.XPATH, "//*[@id=\"ok\"]").click()
+
+# #MFA認証画面に遷移する場合，tokenを取得
+# if(driver.current_url=='https://ou-idp.auth.osaka-u.ac.jp/idp/authnPwd'):
+#     totp=pyotp.TOTP(env.otp_key)
+#     token = totp.now()
+#     driver.find_element(By.XPATH, "//*[@id=\"OTP_CODE\"]").send_keys(token)
+#     driver.find_element(By.XPATH, "/html/body/form/table/tbody/tr[3]/td/table/tbody/tr[7]/td/div/button").click()
+
+# if(driver.current_url == "https://ou-idp.auth.osaka-u.ac.jp/idp/otpAuth"):
+#     driver.find_element(By.XPATH, "/html/body/form/table[2]/tbody/tr[4]/td[1]/input").click()
+#     driver.find_element(By.XPATH, "//*[@id=\"ok\"]").click()
 
 driver.service.stop()
