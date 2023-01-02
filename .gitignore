@@ -3,3 +3,5 @@ dist/
 env.yaml
 *.spec
 *.zip
+
+Pipfile.lock

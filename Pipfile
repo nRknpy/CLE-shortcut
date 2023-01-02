@@ -14,3 +14,6 @@ omegaconf = "*"
 [requires]
 python_version = "3.10"
 python_full_version = "3.10.5"
+
+[scripts]
+build = "pyinstaller index.py --onefile --noconsole"
