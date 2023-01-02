@@ -26,5 +26,5 @@ $ pipenv shell
 ## exe ファイル書き出し
 
 ```
-$ pyinstaller index.py --onefile --noconsole
+$ pipenv run build
 ```
